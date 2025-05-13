@@ -26,4 +26,33 @@ public class DeathCauseStatistic {
         }
         return new DeathCauseStatistic(code, deathCountArray);
     }
+
+    public AgeBracketDeaths ageBracketDeaths(int age){
+        // ZNAJDOWANIE W KTOREJ GRUPIE JEST
+        int arrayIndex = age/5; // 5, bo tyle sie miesci w jednej grupie
+
+        if (arrayIndex >= deathCountArray.length) {
+            arrayIndex = deathCountArray.length - 1; // ostatnia grupa dla wieku >=95
+        }
+
+        int young = arrayIndex * 5; // jak sie pomnozy przez to samo co sie podzielilo calkowicie to wychodzi dolna granica tego
+        int old = young + 5; // wiadomo jak sie doda 5 to wyjdzie gorna granica
+        int deathCount = deathCountArray[arrayIndex];
+        return new AgeBracketDeaths(young,old,deathCount);
+    }
+
+
+    public class AgeBracketDeaths {
+        public final int young, old, deathCount;
+
+        public AgeBracketDeaths(int young, int old, int deathCount) {
+            this.young = young;
+            this.old = old;
+            this.deathCount = deathCount;
+        }
+
+        public String toString(){
+            return young + " / " + old + " / " + deathCount;
+        }
+    }
 }
