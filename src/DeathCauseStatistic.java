@@ -36,7 +36,7 @@ public class DeathCauseStatistic {
         }
 
         int young = arrayIndex * 5; // jak sie pomnozy przez to samo co sie podzielilo calkowicie to wychodzi dolna granica tego
-        int old = young + 5; // wiadomo jak sie doda 5 to wyjdzie gorna granica
+        int old = young + 4; // wiadomo jak sie doda [jednak 4?xd] to wyjdzie gorna granica
         int deathCount = deathCountArray[arrayIndex];
         return new AgeBracketDeaths(young,old,deathCount);
     }
